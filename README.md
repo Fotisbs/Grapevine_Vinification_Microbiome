@@ -5,17 +5,17 @@
 For obtaining the code the users need to open a terminal and having the [GitHub tools](https://github.com/git-guides/install-git), git-clone or download the repository, and enter the base folder. E.g:
 
 ```
-$ git clone https://github.com/Fotisbs/Grapevine_wood_microbiome-.git
+$ git clone https://github.com/Fotisbs/Grapevine_Vinification_Microbiome.git
 ```
 
-In the case of the computational methods, with the "Grapevine_wood_microbiome-" folder as working directory, and assuming that the necessary software and R packages are installed, the used code can be executed as described in this Readme.md file. The necessary datasets for performing all sequencing based analysis can be downloaded implementing the code provided in the corresponding repository folders as explained below.
+In the case of the computational methods, with the "Grapevine_Vinification_Microbiome" folder as working directory, and assuming that the necessary software and R packages are installed, the used code can be executed as described in this Readme.md file. The necessary datasets for performing all sequencing based analysis can be downloaded implementing the code provided in the corresponding repository folders as explained below.
 
 ## Description of the order of executed scripts.
 
 Steps 1-3 concern the data retrieval from NCBI and preprocessing, while steps 4-6 concern the actual data analysis for total fungi and bacteria. 
 
 1) First, it is necessary to download the sequencing data.
-To do so, you need to enter the "0.DownloadData" subfolder of e.g. the "Fungi" and execute the "fetch_data.sh" bash script (this assumes that you are located at the working directory "Grapevine_wood_microbiome-").
+To do so, you need to enter the "0.DownloadData" subfolder of e.g. the "Fungi" and execute the "fetch_data.sh" bash script (this assumes that you are located at the working directory "Grapevine_Vinification_Microbiome-").
 The script is based on the SRR accession numbers found in the 0.DownloadData folder.
 Once the download is done, you need to combine all forward reads to a single file and all reverse reads to another file as well.
 ```
