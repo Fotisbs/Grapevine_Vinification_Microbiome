@@ -30,8 +30,8 @@ In the case of the computational methods, with the "Grapevine_Vinification_Micro
 
 Steps 0-2 concern the data retrieval from NCBI and preprocessing, while step 3 and the subfolders concern the actual data analysis for total fungi and bacteria. 
 
-1) First, it is necessary to download the sequencing data.
-To do so, you need to enter the "0.DownloadData" subfolder of e.g. the "Fungi" and execute the "fetch_data.sh" bash script (this assumes that you are located at the working directory "Grapevine_Vinification_Microbiome").
+0) First, it is necessary to download the sequencing data.
+To do so, you need to enter the "0.DownloadData" subfolder of "Fungi" and "Bacteria" folders and execute the "fetch_data.sh" bash script (this assumes that you are located at the working directory "Grapevine_Vinification_Microbiome").
 The script is based on the SRR accession numbers found in the 0.DownloadData folder.
 Once the download is done, you need to combine all forward reads to a single file and all reverse reads to another file as well.
 ```
@@ -50,8 +50,8 @@ do
 done
 ```
 
-2) Then you need to demultiplex the data according to our own demultiplexing method using our in-house script.
-This requires Flexbar v3.0.3 to be installed as described in the manuscript.
+1) Then you need to demultiplex the data according to our own demultiplexing method using our in-house script.
+This requires Flexbar v3.0.3 to be installed.
 A detailed description of our in-house multiplexing approach is provided in our [previous work] (https://github.com/SotiriosVasileiadis/mconsort_tbz_degr#16s).
 You need to enter the folder Fungi/1.Demultiplex and run the following commands (change the MY_PROCS variable to whatever number of logical processors you have available and want to devote).
 the following commands are going to save the demultiplexed files in the Fungi(or Bacteria)/1.Demultiplex/demux_out folder.
@@ -83,7 +83,7 @@ mkdir -p demux_out/analysis_ready
 cp demux_out[0-9]/analysis_ready/*.fastq demux_out/analysis_ready/
 cd ../../
 ```
-3) Following, the "phyloseqPrep.r" script of the Fungi(or Bacteria)/2.PhyloseqObjectPerp folder is run in order to prepare the final phyloseq object to be used in the data analysis described below. Before runnin gthe script make sure that the necessary reference databases are found in the same folder.
+2) Following, the "phyloseqPrep.r" script of the Fungi(or Bacteria)/2.PhyloseqObjectPerp folder is run in order to prepare the final phyloseq object to be used in the data analysis described below. Before runnin gthe script make sure that the necessary reference databases are found in the same folder.
 ```
 cd Fungi/2.PhyloseqObjectPrep
 # fetch the databases
@@ -100,8 +100,12 @@ tar vxf *.gz
 Rscript phyloseqPrep.r
 cd ../../
 ```
-4a) Run the overall PERMANOVA tests.
+3) Data analysis folder include subfolders for each analysis graphs supplied at the researched article "Vineyard-mediated factors are still operative in spontaneous and commercial fermentations shaping the vinification microbiome and affecting the antioxidant and anticancer properties of wines". Subfolders contain the R script to be executed for "Fungi" and "Bacteria" accordingly. In same case the outcome graphs were digitally corrected for aesthetics reasons only. 
 ```
+
+Run the Bar Plots analysis
+Run the NMDS analysis
+
 cd Fungi/3.DataAnalysis/PERMANOVA
 Rscript PERMANOVA.R
 cd ../../../
@@ -109,7 +113,7 @@ cd Bacteria/3.DataAnalysis/PERMANOVA
 Rscript PERMANOVA.R
 cd ../../../
 ```
-4b) Run the NMDS and PERMANOVA tests.
+) Run the NMDS and PERMANOVA tests.
 ```
 cd Fungi/3.DataAnalysis/NMDS_PERMANOVA_PAIRWISE
 Rscript NMDS_PERMANOVA.R
@@ -117,43 +121,6 @@ cd ../../../
 cd Bacteria/3.DataAnalysis/NMDS_PERMANOVA_PAIRWISE
 Rscript NMDS_PERMANOVA.R
 cd ../../../
-```
-4c) Prepare the barplots.
-```
-cd Fungi/3.DataAnalysis/BarPlots
-Rscript BarPlots.R
-cd ../../../
-cd Bacteria/3.DataAnalysis/BarPlots
-Rscript BarPlots.R
-cd ../../../
-```
-4d) Prepare the differential abundance (DA) heatmaps.
-```
-cd Fungi/3.DataAnalysis/DA
-Rscript DA.R
-cd ../../../
-cd Bacteria/3.DataAnalysis/DA
-Rscript DA.R
-cd ../../../
-```
-4e) Run the random forests analysis.
-```
-cd Fungi/3.DataAnalysis/RandomForests
-Rscript RandomForests.R
-cd ../../../
-```
-
-5) Pathogenic fungi, linked to the grapevine trunk decline (GTD) complex, were selected as described in the manuscript.
-
-6) Network analysis was performed no attempt and identify links among the GTD complex members and between the complex and the rest fungi and total bacteria. run the following
-
-```
-cd NetWork
-cp ../PathogenicFungiObjectPrep/PathogenASVsFull.RDS ./
-cp ../Fungi/2.PhyloseqObjectPrep/FUNGIFINALWOOD.RDS ./
-cp ../Bacteria/2.PhyloseqObjectPrep/BACTERIAFINALWOOD.RDS ./
-Rscript network_vine_wood.R
-cd ..
 ```
 
 
