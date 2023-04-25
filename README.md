@@ -1,4 +1,20 @@
-# Grapevine_Vinification_Microbiome
+# ***Vineyard-mediated factors are still operative in spontaneous and commercial fermentations shaping the vinification microbiome and affecting the antioxidant and anticancer properties of wines***
+
+### By Papadopoulou E. <sup>1+</sup>, Bekris F. <sup>1+</sup>, Vasileiadis S. <sup>1</sup>, Krokida A. <sup>2</sup>, Rouvali T. <sup>3</sup>, Aristidis V.S. <sup>14</sup>, Liadaki K. <sup>1</sup>, Kouretas D. <sup>5</sup>, Karpouzas D.G <sup>1*</sup>
+
+### (\+ Elena Papadopoulou and Fotios Bekris contributed equally to this work.)
+### (\* corr. author)
+
+<sup>1</sup> University of Thessaly, Department of Biochemistry and Biotechnology, Laboratory of Plant and Environmental Biotechnology, 41500 Viopolis – Larissa, Greece
+
+<sup>2</sup> VINICOL Krokidas Winery, 25006 Akrata, Greece
+
+<sup>3</sup> Rouvalis Winery, 25100 Aigio, Greece
+
+<sup>4</sup> University of Thessaly, Department of Nutrition and Dietetics, 42132 Trikala, Greece
+
+<sup>5</sup> University of Thessaly, Department of Biochemistry and Biotechnology, Laboratory of Animal Physiology, 41500 Viopolis – Larissa, Greece
+
 
 ## The provided material includes the code used in the statistical analysis of the study.
 
