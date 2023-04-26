@@ -115,7 +115,7 @@ cd ../../
 
 3f.) Run PERMANOVA analysis
 
-3g.) Run Pairwise Permanova analysis
+3g.) Run Pairwise PERMANOVA analysis
 
 cd Fungi/3.DataAnalysis/PERMANOVA
 Rscript PERMANOVA.R
