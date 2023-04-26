@@ -100,11 +100,22 @@ tar vxf *.gz
 Rscript phyloseqPrep.r
 cd ../../
 ```
-3) Data analysis folder include subfolders for each analysis graphs supplied at the researched article "Vineyard-mediated factors are still operative in spontaneous and commercial fermentations shaping the vinification microbiome and affecting the antioxidant and anticancer properties of wines". Subfolders contain the R script to be executed for "Fungi" and "Bacteria" accordingly. In same case the outcome graphs were digitally corrected for aesthetics reasons only. 
+3) Data analysis folder include subfolders for each analysis graphs supplied at the researched article "Vineyard-mediated factors are still operative in spontaneous and commercial fermentations shaping the vinification microbiome and affecting the antioxidant and anticancer properties of wines". Subfolders contain the R script to be executed for "Fungi" and "Bacteria" accordingly. In same cases the outcome graphs were digitally corrected for aesthetics reasons only. 
 ```
 
-Run the Bar Plots analysis
-Run the NMDS analysis
+3a.) Run Bar Plots analysis
+
+3b.) Run NMDS analysis
+
+3c.) Run Rarefaction Curves analysis
+
+3d.) Run Alpha Diversity analysis
+
+3e.) Run Ordination Triplot analysis
+
+3f.) Run PERMANOVA analysis
+
+3g.) Run Pairwise Permanova analysis
 
 cd Fungi/3.DataAnalysis/PERMANOVA
 Rscript PERMANOVA.R
