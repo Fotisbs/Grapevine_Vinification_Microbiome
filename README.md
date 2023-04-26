@@ -124,15 +124,6 @@ cd Bacteria/3.DataAnalysis/PERMANOVA
 Rscript PERMANOVA.R
 cd ../../../
 ```
-) Run the NMDS and PERMANOVA tests.
-```
-cd Fungi/3.DataAnalysis/NMDS_PERMANOVA_PAIRWISE
-Rscript NMDS_PERMANOVA.R
-cd ../../../
-cd Bacteria/3.DataAnalysis/NMDS_PERMANOVA_PAIRWISE
-Rscript NMDS_PERMANOVA.R
-cd ../../../
-```
 
 
 ## Code Usage disclaimer<a name="disclaimer"></a>
