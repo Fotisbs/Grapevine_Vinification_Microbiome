@@ -104,7 +104,7 @@ cd ../../
 
 3a.) Run Bar Plots analysis
 
-3b.) Run NMDS analysis
+3b.) Run NMDS and Pairwise-PERMANOVA  analysis
 
 3c.) Run Rarefaction Curves analysis
 
@@ -113,8 +113,6 @@ cd ../../
 3e.) Run Ordination Triplot analysis
 
 3f.) Run PERMANOVA analysis
-
-3g.) Run Pairwise PERMANOVA analysis
 
 cd Fungi/3.DataAnalysis/PERMANOVA
 Rscript PERMANOVA.R
