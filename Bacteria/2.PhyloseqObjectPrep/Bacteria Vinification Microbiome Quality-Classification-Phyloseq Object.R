@@ -11,7 +11,7 @@ mymultthread <- 56
 
 ##input file path and storing in variables##
 ##change to the directory containing the fastq files after unzipping##
-path1 <- ("~/fotisbac_wd")
+path1 <- ("~/ex.Bacteria")
 
 ##lists files in a path##
 list.files(path1)
@@ -107,7 +107,7 @@ library(phyloseq); packageVersion("phyloseq")
 samdf <- read.table(file ="design", header = T, row.names = 1, sep = "\t", check.names = F, quote = "", comment.char = "")
 
 ##construct the phyloseq object## 
-ps_bac <- phyloseq(otu_table(seqtab.nochim, taxa_are_rows=FALSE) 
+ps_bacteria <- phyloseq(otu_table(seqtab.nochim, taxa_are_rows=FALSE) 
                    ,sample_data(samdf) 
                    ,tax_table(taxa))
 
@@ -115,47 +115,47 @@ ps_bac <- phyloseq(otu_table(seqtab.nochim, taxa_are_rows=FALSE)
 ##load the Biostrings and stringr packages##
 library("Biostrings")
 
-sequences <- Biostrings::DNAStringSet(taxa_names(ps_bac))
-names(sequences) <- taxa_names(ps_bac)
+sequences <- Biostrings::DNAStringSet(taxa_names(ps_bacteria))
+names(sequences) <- taxa_names(ps_bacteria)
 
-ps <- merge_phyloseq(ps_bac, sequences)
+ps <- merge_phyloseq(ps_bacteria, sequences)
 
-ps_bac_wd <- ps
+ps_bacteria_vinification <- ps
 
 library(stringr)
-taxa_names(ps_bac_wd) <- paste("ASV",str_pad(1:length(taxa_names(ps_bac_wd)),4, pad = "0"),sep = "")
+taxa_names(ps_bacteria_vinification) <- paste("ASV",str_pad(1:length(taxa_names(ps_bacteria_vinification)),4, pad = "0"),sep = "")
 
 ##Create table,and check number of features for each phyla##
-table(tax_table(ps_bac_wd)[, "Kingdom"], exclude = NULL)
-table(tax_table(ps_bac_wd)[, "Phylum"], exclude = NULL) 
-table(tax_table(ps_bac_wd)[, "Class"], exclude = NULL) 
-table(tax_table(ps_bac_wd)[, "Order"], exclude = NULL)
-table(tax_table(ps_bac_wd)[, "Family"], exclude = NULL)
-table(tax_table(ps_bac_wd)[, "Genus"], exclude = NULL)
+table(tax_table(ps_bacteria_vinification)[, "Kingdom"], exclude = NULL)
+table(tax_table(ps_bacteria_vinification)[, "Phylum"], exclude = NULL) 
+table(tax_table(ps_bacteria_vinification)[, "Class"], exclude = NULL) 
+table(tax_table(ps_bacteria_vinification)[, "Order"], exclude = NULL)
+table(tax_table(ps_bacteria_vinification)[, "Family"], exclude = NULL)
+table(tax_table(ps_bacteria_vinification)[, "Genus"], exclude = NULL)
 
 ##Further, features with ambiguous annotation, low abundance or non target taxa removed from phyloseq object##
 ##For our analysis removed Eukaryota, Archaea, NA##
-ps_bac_wd <- subset_taxa(ps_bac_wd, !is.na(Kingdom) & !Kingdom %in% (c("", "uncharacterized", "Eukaryota","Archaea")))
+ps_bacteria_vinification <- subset_taxa(ps_bacteria_vinification, !is.na(Kingdom) & !Kingdom %in% (c("", "uncharacterized", "Eukaryota","Archaea")))
 
 ##also remove mitochondria and chloroplasts##
 
-ps_bac_wd <- subset_taxa(ps_bac_wd, !Order %in% c("Chloroplast"))
+ps_bacteria_vinification <- subset_taxa(ps_bacteria_vinification, !Order %in% c("Chloroplast"))
 
-ps_bac_wd <- subset_taxa(ps_bac_wd, !Family %in% c("Mitochondria"))
+ps_bacteria_vinification <- subset_taxa(ps_bacteria_vinification, !Family %in% c("Mitochondria"))
 
-ps_bac_wd <- prune_taxa(taxa_sums(ps_bac_wd)>0, ps_bac_wd)
+ps_bacteria_vinification <- prune_taxa(taxa_sums(ps_bacteria_vinification)>0, ps_bacteria_vinification)
 
 ##replace the NA names with the classified leftmost (higher level annotated) taxa##
-ps_bac_wd <- BACTERIAFINALWOOD
+ps_bacteria_vinification <- bacteria_vinification_Annotated
 
-for(i in 1:nrow(tax_table(BACTERIAFINALWOOD))){
-  for(j in 2:ncol(tax_table(BACTERIAFINALWOOD))){
-    if(is.na(tax_table(BACTERIAFINALWOOD)[i,j])){
-      tax_table(BACTERIAFINALWOOD)[i,j] <- tax_table(BACTERIAFINALWOOD)[i,j-1]
+for(i in 1:nrow(tax_table(bacteria_vinification_Annotated))){
+  for(j in 2:ncol(tax_table(bacteria_vinification_Annotated))){
+    if(is.na(tax_table(bacteria_vinification_Annotated)[i,j])){
+      tax_table(bacteria_vinification_Annotated)[i,j] <- tax_table(bacteria_vinification_Annotated)[i,j-1]
     }
   }
 }
 
 ##save phyloseq object and continue with the statistical analysis scripts##
 
-saveRDS(BACTERIAFINALWOOD, file = "BACTERIAFINALWOOD.RDS")
+saveRDS(bacteria_vinification_Annotated, file = "bacteria_vinification_Annotated.RDS")
