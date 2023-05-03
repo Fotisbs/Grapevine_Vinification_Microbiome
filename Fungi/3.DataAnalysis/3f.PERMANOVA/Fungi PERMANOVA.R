@@ -1,70 +1,58 @@
-                               ##PERMANOVA######
+                                                 ##PERMANOVA‐based variation partitioning analysis######
 ##load package vegan and adonis function##
 library(vegan)
+library(pairwiseAdonis)
       
-##load phyloseq object for fungi, (FUNGIFINALWOOD.RDS)##
-FUNGIFINALWOOD   
+##load phyloseq object for fungi, (the XXXXXX.RDS File from the construcrion of the phyloseq object raw counts)##
+fungi_vinification_Annotated   
 
-##PERMANOVA analysis must be applied to all vine varieties collectively and for each variety separately## 
+##PERMANOVA‐based variation partitioning analysis must be applied to both vinification cultivars collectively and for each variety separately## 
 ##ALL VARIETIES COLLECTIVELY##
 ##transform phyloseq object raw counts to relative abundance (100%)##
-FUNGIFINALWOOD100 <- transform_sample_counts(FUNGIFINALWOOD, function(OTU) 100*OTU/sum(OTU))
+fungi_vinification_Annotated100 <- transform_sample_counts(fungi_vinification_Annotated, function(OTU) 100*OTU/sum(OTU))
 
-##All Varieties##
+##Both Cultivars##
 ##PERMANOVA using Bray-Curtis dissimilarity index##
-mypermanovaFUNGIFINAL <- adonis(FUNGIFINALWOOD100@otu_table ~ GTDs_condition + variety + vineyard, method = "bray", data = data.frame(FUNGIFINALWOOD100@sam_data))                              
+mypermanovafungi_vinification_Annotated100_Both <- adonis(fungi_vinification_Annotated100@otu_table ~ year + variety + terroir + vinification + stage, method = "bray", data = data.frame(fungi_vinification_Annotated100@sam_data))                              
 
 ##All Varieties##
 ##export the statistics## 
-mypermanovaFUNGIFINAL                              
+mypermanovafungi_vinification_Annotated100_Both                              
                                
                                
-##EACH VARIETY SEPARATELY##
-##Subset DataSet to each variety and perform PERMANOVA analysis##         
-##Agiorgitiko##
-FUNGIWOODAgiorgitiko<- subset_samples(FUNGIFINALWOOD, variety=="Agiorgitiko")
-FUNGIWOODAgiorgitiko <- prune_taxa(taxa_sums(FUNGIWOODAgiorgitiko)>0,FUNGIWOODAgiorgitiko)
+##EACH CULTIVAR SEPARATELY##
+##Subset DataSet to each cultivar and perform PERMANOVA analysis##         
+##Subset Roditis samples##
+                                                         
+fungi_vinification_Annotated_Roditis <- subset_samples(fungi_vinification_Annotated, variety=="Roditis")
+fungi_vinification_Annotated_Roditis <- prune_taxa(taxa_sums(fungi_vinification_Annotated_Roditis)>0,fungi_vinification_Annotated_Roditis)
 
-##Agiorgitiko##
+##Roditis##
 ##transform phyloseq object raw counts to relative abundance (100%)##
-FUNGIWOODAgiorgitiko100 <- transform_sample_counts(FUNGIWOODAgiorgitiko, function(OTU) 100*OTU/sum(OTU))
+fungi_vinification_Annotated_Roditis100 <- transform_sample_counts(fungi_vinification_Annotated_Roditis, function(OTU) 100*OTU/sum(OTU))
 
-##Agiorgitiko##
+##Roditis##
 ##PERMANOVA using Bray-Curtis dissimilarity index##
-mypermanovaAgiorgitiko <- adonis(FUNGIWOODAgiorgitiko100@otu_table ~ GTDs_condition + vineyard, method = "bray", data = data.frame(FUNGIWOODAgiorgitiko100@sam_data))
-##Agiorgitiko##
+mypermanovafungi_vinification_Annotated_Roditis100 <- adonis(fungi_vinification_Annotated_Roditis100@otu_table ~ year + terroir + vinification + stage, method = "bray", data = data.frame(fungi_vinification_Annotated100_Roditis100@sam_data))
+##Roditis##
 ##export the statistics##
-mypermanovaAgiorgitiko
+mypermanovafungi_vinification_Annotated_Roditis100
 
-##Xinomavro##
-FUNGIWOODXinomavro<- subset_samples(FUNGIFINALWOOD, variety=="Xinomavro")
-FUNGIWOODXinomavro <- prune_taxa(taxa_sums(FUNGIWOODXinomavro)>0,FUNGIWOODXinomavro)
+##Subset Sideritis samples##
+fungi_vinification_Annotated_Sideritis <- subset_samples(fungi_vinification_Annotated, variety=="Sideritis")
+fungi_vinification_Annotated_Sideritis <- prune_taxa(taxa_sums(fungi_vinification_Annotated_Sideritis)>0,fungi_vinification_Annotated_Sideritis)
 
-##Xinomavro
+##Sideritis##
 ##transform phyloseq object raw counts to relative abundance (100%)##
-FUNGIWOODXinomavro100 <- transform_sample_counts(FUNGIWOODXinomavro, function(OTU) 100*OTU/sum(OTU))
+fungi_vinification_Annotated_Sideritis100 <- transform_sample_counts(fungi_vinification_Annotated_Sideritis, function(OTU) 100*OTU/sum(OTU))
 
-##Xinomavro##
+##Sideritis##
 ##PERMANOVA using Bray-Curtis dissimilarity index##
-mypermanovaXinomavro <- adonis(FUNGIWOODXinomavro100@otu_table ~ GTDs_condition + vineyard, method = "bray", data = data.frame(FUNGIWOODXinomavro100@sam_data))
-##Xinomavro##
+mypermanovafungi_vinification_Annotated_Sideritis100 <- adonis(fungi_vinification_Annotated_Sideritis100@otu_table ~ year + terroir + vinification + stage, method = "bray", data = data.frame(fungi_vinification_Annotated_Sideritis100@sam_data))
+##Sideritis##
 ##export the statistics##
-mypermanovaXinomavro
+mypermanovafungi_vinification_Annotated_Sideritis100
 
-##Vidiano##
-FUNGIWOODVidiano<- subset_samples(FUNGIFINALWOOD, variety=="Vidiano")
-FUNGIWOODVidiano <- prune_taxa(taxa_sums(FUNGIWOODVidiano)>0,FUNGIWOODVidiano)
-
-##Vidiano
-##transform phyloseq object raw counts to relative abundance (100%)##
-FUNGIWOODVidiano100 <- transform_sample_counts(FUNGIWOODVidiano, function(OTU) 100*OTU/sum(OTU))
-
-##Vidiano##
-##PERMANOVA using Bray-Curtis dissimilarity index##
-mypermanovaVidiano <- adonis(FUNGIWOODVidiano100@otu_table ~ GTDs_condition + vineyard, method = "bray", data = data.frame(FUNGIWOODVidiano100@sam_data))
-##Vidiano##
-##export the statistics##
-mypermanovaVidiano
 
 
 
