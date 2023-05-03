@@ -82,7 +82,7 @@ mkdir -p demux_out/analysis_ready
 cp demux_out[0-9]/analysis_ready/*.fastq demux_out/analysis_ready/
 cd ../../
 ```
-2) Following, the "phyloseqPrep.r" script of the Fungi(or Bacteria)/2.PhyloseqObjectPerp folder is run in order to prepare the final phyloseq object to be used in the data analysis described below. Before runnin gthe script make sure that the necessary reference databases are found in the same folder.
+2) Following, the "phyloseqPrep.r" script of the Fungi(or Bacteria)/2.PhyloseqObjectPerp folder is run in order to prepare the final phyloseq object to be used in the data analysis described below. Before running the script make sure that the necessary reference databases are found in the same folder.
 ```
 cd Fungi/2.PhyloseqObjectPrep
 # fetch the databases
