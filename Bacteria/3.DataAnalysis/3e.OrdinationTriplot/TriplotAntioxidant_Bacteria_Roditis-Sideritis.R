@@ -293,10 +293,7 @@ install.packages("plotrix")
 
 plotrix::thigmophobe.labels(25*mynmdsspe[c("ASV00144","ASV00049","ASV00450","ASV00329","ASV00222","ASV00245","ASV00717","ASV00148","ASV00133","ASV00299","ASV00106","ASV00101","ASV00549","ASV00544","ASV00376","ASV00313","ASV00664","ASV00493","ASV00441","ASV00741","ASV00214","ASV01629"),1], 25*mynmdsspe[c("ASV00144","ASV00049","ASV00450","ASV00329","ASV00222","ASV00245","ASV00717","ASV00148","ASV00133","ASV00299","ASV00106","ASV00101","ASV00549","ASV00544","ASV00376","ASV00313","ASV00664","ASV00493","ASV00441","ASV00741","ASV00214","ASV01629"),2], labels = a, cex = .6, font = 2, col = rgb(120,120,120,max = 255, alpha =200)) 
 
-#simantiko# plotrix::thigmophobe.labels(1.2*mynmdsspe[1:15,1], 1.2*mynmdsspe[1:15,2], labels = mytax_tbl[row.names(mynmdsspe)[1:15],"forplt"], cex = .6, font = 2, col = rgb(153,153,153, max = 255, alpha = 175)) # the color is equivalent to "grey60", but transparent
 # the following prints the legend
 graphics::legend("topright",bty = "n", legend = levels(my_sel_var), pch = 21, pt.bg = myplotcols[1:length(levels(my_sel_var))], pt.cex = 1.5)
 
 dev.off()
-
-...............................................................
