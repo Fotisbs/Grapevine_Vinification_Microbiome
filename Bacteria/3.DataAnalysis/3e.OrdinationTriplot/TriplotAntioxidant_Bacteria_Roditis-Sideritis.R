@@ -111,17 +111,8 @@ arrows(0,0,0.3*arrowdata[,1] , 0.3*arrowdata[,2], angle = 25, length = 0.15, col
 # also the labeling text
 text(0.4*arrowdata[,1], 0.4*arrowdata[,2], labels = row.names(arrowdata), cex = 1.3, font = 2, col = rgb(20,20,20, max = 255, alpha = 255)) 
 
-##simantiko species arrows and labels##
------------------------------------------------------------------
-  ##Epilego ta ASVs pou thelo ite aritmitika ite onomastika
-  
-  ##Aritmitika##
-  arrows(0,0,mynmdsspe[1:22,1] , mynmdsspe[1:22,2], angle = 25, length = 0.15, col = rgb(40,40,40, max = 255, alpha = 100))
-
-
-plotrix::thigmophobe.labels(1.2*mynmdsspe[1:20,1], 1.2*mynmdsspe[1:20,2], labels = mytax_tbl[row.names(mynmdsspe)[1:20],"forplt"], cex = .6, font = 2, col = rgb(120,120,120, max = 255, alpha =200))
-
-##Onomastika anti gia diaforika afthona##
+##Species arrows selection and labels##
+##Differential Abundant species according to Kruskal-Wallis test##
 arrows(0,0,mynmdsspe[c("ASV01884","ASV01953","ASV01039","ASV00415","ASV00099","ASV00071","ASV00397","ASV00271","ASV00172","ASV02091","ASV00528","ASV00417","ASV01357","ASV00112","ASV00759","ASV00208","ASV00048","ASV00009","ASV00039","ASV00440","ASV00049","ASV00055"),1] , mynmdsspe[c("ASV01884","ASV01953","ASV01039","ASV00415","ASV00099","ASV00071","ASV00397","ASV00271","ASV00172","ASV02091","ASV00528","ASV00417","ASV01357","ASV00112","ASV00759","ASV00208","ASV00048","ASV00009","ASV00039","ASV00440","ASV00049","ASV00055"),2], angle = 25, length = 0.15, col = rgb(40,40,40, max = 255, alpha = 100))
 
 ("ASV01884","ASV01953","ASV01039","ASV00415","ASV00099","ASV00071","ASV00397","ASV00271","ASV00172","ASV02091","ASV00528","ASV00417","ASV01357","ASV00112","ASV00759","ASV00208","ASV00048","ASV00009","ASV00039","ASV00440","ASV00049","ASV00055")
@@ -242,18 +233,8 @@ arrows(0,0,2.5*arrowdata[,1] , 2.5*arrowdata[,2], angle = 25, length = 0.15, col
 # also the labeling text
 text(2.5*arrowdata[,1], 2.5*arrowdata[,2], labels = row.names(arrowdata), cex = 1.3, font = 2, col = rgb(20,20,20, max = 255, alpha = 255)) 
 
-##simantiko species arrows and labels##
------------------------------------------------------------------
-  ##Epilego ta ASVs pou thelo ite aritmitika ite onomastika
-  
-  ##Aritmitika##
-  arrows(0,0,mynmdsspe[1:22,1] , mynmdsspe[1:22,2], angle = 25, length = 0.15, col = rgb(40,40,40, max = 255, alpha = 100))
-
-
-plotrix::thigmophobe.labels(1.2*mynmdsspe[1:20,1], 1.2*mynmdsspe[1:20,2], labels = mytax_tbl[row.names(mynmdsspe)[1:20],"forplt"], cex = .6, font = 2, col = rgb(120,120,120, max = 255, alpha =200))
-
-
-##Onomastika anti gia diaforika afthona##
+##Species arrows selection and labels##
+##Differential Abundant species according to Kruskal-Wallis test##
 arrows(0,0,25*mynmdsspe[c("ASV00144","ASV00049","ASV00450","ASV00329","ASV00222","ASV00245","ASV00717","ASV00148","ASV00133","ASV00299","ASV00106","ASV00101","ASV00549","ASV00544","ASV00376","ASV00313","ASV00664","ASV00493","ASV00441","ASV00741","ASV00214","ASV01629"),1] , 25*mynmdsspe[c("ASV00144","ASV00049","ASV00450","ASV00329","ASV00222","ASV00245","ASV00717","ASV00148","ASV00133","ASV00299","ASV00106","ASV00101","ASV00549","ASV00544","ASV00376","ASV00313","ASV00664","ASV00493","ASV00441","ASV00741","ASV00214","ASV01629"),2], angle = 25, length = 0.20, col = rgb(40,40,40, max = 255, alpha = 100))
 
 
