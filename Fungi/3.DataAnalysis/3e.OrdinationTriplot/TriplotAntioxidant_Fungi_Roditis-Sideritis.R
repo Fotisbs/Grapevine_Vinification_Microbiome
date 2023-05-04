@@ -267,5 +267,3 @@ plotrix::thigmophobe.labels(1.2*mynmdsspe[c("ASV0001","ASV0002","ASV0005","ASV00
 graphics::legend("topright",bty = "n", legend = levels(my_sel_var), pch = 21, pt.bg = myplotcols[1:length(levels(my_sel_var))], pt.cex = 1.5)
 
 dev.off()
-
-...............................................................
